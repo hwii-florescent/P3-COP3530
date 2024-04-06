@@ -1,0 +1,49 @@
+/* app.css styling of an app */
+
+.navigate1
+{
+    background-color: bisque;
+    padding:0px 0 10px 0;border-radius:10px;
+}
+.navigateContain
+{
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navigatetabs
+{
+    display: flex;
+    list-style-type: none;
+    margin: 7px;
+}
+.navigatetabs li
+{
+    cursor: pointer;
+    margin: 0px 27px 0px 0px;  /*right margin set to 10*/
+
+}
+.navigatetabs li.active {
+    font-weight: bold;
+    color: chocolate;
+    background-color: #E8E8E8;
+    border-radius:8px;
+    padding: 2px 7px;
+  }
+  
+  .displaypages {
+    max-width: 1200px;
+    color:darkslategrey;
+    margin: 20px auto;
+    padding: 0 20px;
+    
+  }
+  /* .mainbackground
+  {
+    background-color: rgb(237, 225, 209);
+  } */
+  body{
+    margin: 0px;
+    background-color: #F0F0F0;
+  }
