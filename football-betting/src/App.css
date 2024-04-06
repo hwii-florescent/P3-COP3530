@@ -2,7 +2,7 @@
 
 .navigate1
 {
-    background-color: bisque;
+    background-color: rgb(130, 129, 129);
     padding:0px 0 10px 0;border-radius:10px;
 }
 .navigateContain
@@ -26,8 +26,8 @@
 }
 .navigatetabs li.active {
     font-weight: bold;
-    color: chocolate;
-    background-color: #E8E8E8;
+    color: rgb(82, 81, 80);
+    background-color: #adabab;
     border-radius:8px;
     padding: 2px 7px;
   }
@@ -45,5 +45,5 @@
   } */
   body{
     margin: 0px;
-    background-color: #F0F0F0;
+    background-color: #ffffff;
   }
