@@ -1,6 +1,11 @@
 import {useState,useEffect} from 'react'
+import React from 'react';
 import './App.css'
+import searchNameInJson from './searchEngine'
+import playerJSON from 'C:/Users/admin/OneDrive/Desktop/COP3530/P3-COP3530/tree_structure.json'
+import PlayerCard from './components/PlayerCard'
 function App() {
+  const [jsonData, setjsonData] = useState(null);
   const [userInput, setuserInput] = useState('');
   const [tabactive, settabactive]= useState('home');
   const funcclickedTab = (clickedtab) =>
@@ -14,6 +19,17 @@ function App() {
 
   const searchPlayer = () => {
     //take value from the dataset and display the player
+    const searchResult = searchNameInJson(playerJSON, userInput);
+    if(searchResult)
+    {
+      console.log('Player found: ', searchResult);
+      setjsonData(searchResult);
+      console.log(jsonData);
+    }
+    else
+    {
+      console.log('Player not found');
+    }
   }
 
   return (
@@ -45,9 +61,19 @@ function App() {
       <input type='text' placeholder='Search players...' className='searchbar' value={userInput} onChange={handleChange}/>
       <button className='searchbutton' onClick={searchPlayer}>Search</button>
     </div>
-
-    </div>
-  )
-}
+    <div>
+    {jsonData ? (
+      jsonData.map((player) => (
+        <ul>
+          <li>
+            <PlayerCard key={player.filename} name={player.name} filename={player.filename} />
+          </li>
+        </ul> 
+      ))
+    ) : null}
+  </div>
+  </div>
+  );
+};
 
 export default App
