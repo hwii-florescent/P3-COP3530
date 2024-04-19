@@ -3,11 +3,13 @@ import React from 'react';
 import './App.css'
 import searchNameInJson from './searchEngine'
 import playerJSON from 'C:/Users/admin/OneDrive/Desktop/COP3530/P3-COP3530/tree_structure.json'
+
 import PlayerCard from './components/PlayerCard'
 function App() {
   const [jsonData, setjsonData] = useState(null);
   const [userInput, setuserInput] = useState('');
   const [tabactive, settabactive]= useState('home');
+  const [playSelectedd, setplaySelectedd]= useState(null);
   const funcclickedTab = (clickedtab) =>
   {
     settabactive(clickedtab);
@@ -15,6 +17,12 @@ function App() {
 
   const handleChange = (e) => {
     setuserInput(e.target.value);
+  }
+  const handlePclick= (name,filename)=>
+  {
+    console.log('Player clicked:', name, filename);
+
+    setplaySelectedd({name,filename});
   }
 
   const searchPlayer = () => {
@@ -24,10 +32,13 @@ function App() {
     {
       console.log('Player found: ', searchResult);
       setjsonData(searchResult);
+      setplaySelectedd(null);
       console.log(jsonData);
     }
     else
     {
+      setplaySelectedd(null);
+
       console.log('Player not found');
     }
   }
@@ -64,14 +75,25 @@ function App() {
     <div>
     {jsonData ? (
       jsonData.map((player) => (
-        <ul>
+        <ul key={player.filename}>
           <li>
-            <PlayerCard key={player.filename} name={player.name} filename={player.filename} />
+            <PlayerCard key={player.filename} name={player.name} filename={player.filename} 
+            onClick= {handlePclick}/>
           </li>
         </ul> 
       ))
     ) : null}
   </div>
+  {playSelectedd && 
+  (
+    <div className='player-info'>
+    <h3> Selected Player: {playSelectedd.name}</h3>
+    <h4> Filename: {playSelectedd.filename}</h4>
+    </div>
+
+
+  )}
+  
   </div>
   );
 };

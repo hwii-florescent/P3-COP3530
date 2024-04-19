@@ -2,6 +2,10 @@ export default function searchNameInJson(node, searchName) {
     if (!node) {
       return [];  // Return an empty array if the node is null
     }
+    // <div className='player-card'
+    //     onClick={()=> onClick(name,filename)}>
+    //         <h1>{name}</h1>
+    //     </div>
   
     // Convert the search string to lowercase for case-insensitive matching
     searchName = searchName.toLowerCase();
