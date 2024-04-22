@@ -6,28 +6,26 @@
 #include <iostream>
 
 struct PlayerRecord {
-    std::string line;  // Entire line as is
-    std::string short_name;  // For sorting
+    std::string line;
+    std::string long_name;
 
-    PlayerRecord(const std::string& line, const std::string& short_name)
-            : line(line), short_name(short_name) {}
+    PlayerRecord(const std::string& line, const std::string& long_name)
+            : line(line), long_name(long_name) {}
 };
 
-// Function to extract the long name from a CSV line
-std::string extract_short_name(const std::string& line, int short_name_index) {
+std::string extract_long_name(const std::string& line, int long_name_index) {
     std::istringstream ss(line);
     std::string token;
     int current_index = 0;
     while (std::getline(ss, token, ',')) {
-        if (current_index == short_name_index) {
+        if (current_index == long_name_index) {
             return token;
         }
         current_index++;
     }
-    return ""; // Return empty if not found
+    return "";
 }
 
-// Read CSV file
 std::vector<PlayerRecord> read_csv(const std::string& filename) {
     std::ifstream file(filename);
     std::string line;
@@ -39,7 +37,7 @@ std::vector<PlayerRecord> read_csv(const std::string& filename) {
     }
     int count = 0;
 
-    std::getline(file, line); // Skip the header
+    std::getline(file, line);
     while (std::getline(file, line)) {
         if(count > 400000){
 
@@ -48,24 +46,19 @@ std::vector<PlayerRecord> read_csv(const std::string& filename) {
         std::cout<<count<<std::endl;
         std::cout<<std::endl;
         if (line.empty() || line.find_first_not_of(',') == std::string::npos) {
-//            std::cout << "Skipping empty or malformed line." << std::endl;
-            continue; // Skip empty lines or lines with only commas
+            continue;
         }
-//        std::cout << "Read line: " << line << std::endl; // Debug print
-        std::string short_name = extract_short_name(line, 6); // Correct index if necessary
-//        std::cout << "Extracted long name: " << short_name << std::endl; // Debug print
-        records.emplace_back(line, short_name);
+        std::string long_name = extract_long_name(line, 6);
+        records.emplace_back(line, long_name);
         count++;
     }
     return records;
 }
 
-// Comparator for sorting
-bool compare_by_short_name(const PlayerRecord& a, const PlayerRecord& b) {
-    return a.short_name < b.short_name;
+bool compare_by_long_name(const PlayerRecord& a, const PlayerRecord& b) {
+    return a.long_name < b.long_name;
 }
 
-// Write sorted data back to CSV
 void write_csv(const std::string& filename, const std::vector<PlayerRecord>& records) {
     std::ofstream file(filename);
     if (!file.is_open()) {
@@ -75,7 +68,7 @@ void write_csv(const std::string& filename, const std::vector<PlayerRecord>& rec
     for (const auto& record : records  ) {
 
         file << record.line << "\n";
-        std::cout << "Writing line: " << record.line << std::endl; // Debug print
+        std::cout << "Writing line: " << record.line << std::endl;
     }
     std::cout << "Data written to file successfully." << std::endl;
 }
@@ -89,7 +82,7 @@ int main() {
     }
 
     std::cout << "Starting to sort records based on long names." << std::endl;
-    std::sort(records.begin(), records.end(), compare_by_short_name);
+    std::sort(records.begin(), records.end(), compare_by_long_name);
     std::cout << "Sorting complete." << std::endl;
 
     write_csv("final_players.csv", records);
