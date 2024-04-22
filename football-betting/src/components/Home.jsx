@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PlayerCard from './PlayerCard';
 import searchNameInJson from '../searchEngine';
+// import playerJSON from 'C:/Users/admin/OneDrive/Desktop/COP3530/P3-COP3530/tree_structure.json'
 import playerJSON from 'C:/Users/admin/OneDrive/Desktop/COP3530/P3-COP3530/tree_structure.json'
+
 function Home() {
   const [jsonData, setJsonData] = useState(null);
   const [userInput, setUserInput] = useState('');
