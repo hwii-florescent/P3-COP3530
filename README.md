@@ -9,7 +9,15 @@ Before you start, ensure you have Node.js and npm installed on your system. You 
 
 ## Installation
 
-### Step 1: Install Required Dependencies
+### Step 1: Download the dataset .csv file (The dataset file is too large and cannot be uploaded on GitHub)
+
+1. Go to the following site: [Male Soccer Players Dataset](https://www.kaggle.com/datasets/stefanoleone992/fifa-23-complete-player-dataset?select=male_players.csv)
+   
+2. Download male_player.csv
+   
+3. Put male_player.csv inside the folder football-betting
+
+### Step 2: Install Required Dependencies
 
 1. Navigate to your project directory:
    ```
@@ -23,7 +31,7 @@ Before you start, ensure you have Node.js and npm installed on your system. You 
    
    ```
 
-### Step 2: Run Data Structure Scripts
+### Step 3: Run Data Structure Scripts
 
 1. Compile and run the C++ script:
    ```
