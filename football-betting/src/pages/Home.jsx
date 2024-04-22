@@ -1,36 +1,37 @@
 import searchNameInJson from "../searchEngine";
-import playerJSON from 'C:/Users/admin/OneDrive/Desktop/COP3530/P3-COP3530/tree_structure.json'
-
-import PlayerCard from "../components/PlayerCard";
+import playerJSON from "../../../tree_structure.json";
+import PlayerData from "../components/PlayerData";
 import React from "react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./Home.css";
 
-function Home({ setplaySelectedd, setplaySelecteddfilename }) {
+function Home({ setName, setBatch, setPlayerVer }) {
   const [jsonData, setjsonData] = useState(null);
   const [userInput, setuserInput] = useState("");
 
   const handleChange = (e) => {
     setuserInput(e.target.value);
   };
-  const handlePclick = (name, filename) => {
-    console.log("Player clicked:", name, filename);
 
-    setplaySelectedd({ name, filename });
-    setplaySelecteddfilename({ filename });
+  const loadJSONData = async (filePath) => {
+    await fetch(filePath)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data loaded successfully", data);
+        // You can call other functions here to use the data
+        setjsonData(data); // Assuming setjsonData is a function to handle the data
+        setBatch(data);
+      })
+      .catch((error) => console.error("Failed to load JSON data", error));
   };
-
   const searchPlayer = () => {
     //take value from the dataset and display the player
     const searchResult = searchNameInJson(playerJSON, userInput);
     if (searchResult) {
-      console.log("Player found: ", searchResult);
-      setjsonData(searchResult);
-      setplaySelectedd(null);
-      console.log(jsonData);
+      console.log("File found: ", searchResult);
+      loadJSONData(searchResult);
+      setName(userInput);
     } else {
-      setplaySelectedd(null);
       console.log("Player not found");
     }
   };
@@ -49,21 +50,13 @@ function Home({ setplaySelectedd, setplaySelecteddfilename }) {
         </button>
       </div>
       <div>
-        {jsonData
-          ? jsonData.map((player) => (
-              <ul key={player.filename}>
-                <PlayerCard
-                    key={player.filename}
-                    name={player.name}
-                    filename={player.filename}
-                    
-                  />
-                <Link to="/player">
-                <button onClick={() => handlePclick(player.name, player.filename)}> See Details </button>
-                </Link>
-              </ul>
-            ))
-          : null}
+        {jsonData ? (
+          <PlayerData
+            jsonData={jsonData}
+            matchValue={userInput}
+            setPlayerVer={setPlayerVer}
+          />
+        ) : null}
       </div>
     </div>
   );
