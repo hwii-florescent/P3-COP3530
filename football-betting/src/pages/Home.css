@@ -44,7 +44,7 @@ ul {
 /* Styling the button inside the Link for detail viewing */
 button {
   margin-top: 10px;
-  background-color: #28a745;
+  background-color: #396bd8;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -54,7 +54,7 @@ button {
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #0f1457;
 }
 
 /* Optional: You might want to add some generic resets */

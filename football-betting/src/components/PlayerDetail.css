@@ -1,0 +1,25 @@
+.player-c {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .player-in4 {
+    margin: 10px 0;
+  }
+  
+  p {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  

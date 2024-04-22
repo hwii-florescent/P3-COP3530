@@ -2,23 +2,24 @@ import { useState, useEffect } from "react";
 import { useRoutes, Link } from "react-router-dom";
 import React from "react";
 import "./App.css";
-
-import PlayerDets from "./components/PlayerDets";
+import PlayerDetail from "./components/PlayerDetail";
 import Home from "./pages/Home";
 function App() {
-  const [playSelectedd, setplaySelectedd] = useState(null);
-  const [playSelecteddFilename, setplaySelecteddfilename] = useState(null);
+  const [name, setName] = useState(null);
+  const [batch, setBatch] = useState(null);
+  const [playerVer, setPlayerVer] = useState(null);
   let element = useRoutes([
     {
-      path: "/player",
-      element: <PlayerDets filename={playSelecteddFilename} />,
+      path: "/Details",
+      element: <PlayerDetail name={name} batch={batch} playerVer={playerVer}/>,
     },
     {
       path: "/",
       element:
         <Home
-          setplaySelectedd={setplaySelectedd}
-          setplaySelecteddfilename={setplaySelecteddfilename}
+          setName={setName}
+          setBatch={setBatch}
+          setPlayerVer={setPlayerVer}
         />,
     },
   ]);

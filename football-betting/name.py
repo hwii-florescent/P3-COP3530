@@ -90,7 +90,7 @@ def read_and_split_data(filename, batch_size):
 
 def save_batches(batches):
     for i, batch in enumerate(batches):
-        batch_map = {row[6]: row for row in batch}  # Create a dictionary with the short name as key
+        batch_map = {row[1]: row for row in batch}  # Create a dictionary with the short name as key
         with open(f'batch_{i}.json', 'w') as f:
             json.dump(batch_map, f, indent=4)
 
@@ -116,8 +116,8 @@ save_batches(batches)
 
 tree = AVLTree()
 for i, batch in enumerate(batches):
-    min_name = min(batch, key=lambda x: x[6])[6]
-    max_name = max(batch, key=lambda x: x[6])[6]
+    min_name = min(batch, key=lambda x: x[5])[5]
+    max_name = max(batch, key=lambda x: x[5])[5]
     filename = f'batch_{i}.json'
     tree.insert(TreeNode(min_name, max_name, filename))
 
