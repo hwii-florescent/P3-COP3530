@@ -28,7 +28,6 @@ Before you start, ensure you have Node.js and npm installed on your system. You 
    ```
    npm install
    npm install react-router-dom
-   
    ```
 
 ### Step 3: Run Data Structure Scripts
