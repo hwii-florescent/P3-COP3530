@@ -3,13 +3,15 @@ import React from 'react';
 import './App.css'
 import searchNameInJson from './searchEngine'
 import playerJSON from 'C:/Users/admin/OneDrive/Desktop/COP3530/P3-COP3530/tree_structure.json'
-
+import PlayerDets from './components/PlayerDets';
 import PlayerCard from './components/PlayerCard'
 function App() {
   const [jsonData, setjsonData] = useState(null);
   const [userInput, setuserInput] = useState('');
   const [tabactive, settabactive]= useState('home');
   const [playSelectedd, setplaySelectedd]= useState(null);
+  const [playSelecteddFilename, setplaySelecteddfilename]= useState(null);
+
   const funcclickedTab = (clickedtab) =>
   {
     settabactive(clickedtab);
@@ -23,6 +25,7 @@ function App() {
     console.log('Player clicked:', name, filename);
 
     setplaySelectedd({name,filename});
+    setplaySelecteddfilename({filename});
   }
 
   const searchPlayer = () => {
@@ -93,6 +96,7 @@ function App() {
 
 
   )}
+  {playSelecteddFilename && <PlayerDets filename={playSelecteddFilename} />}
   
   </div>
   );
