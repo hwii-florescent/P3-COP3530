@@ -20,16 +20,8 @@ Before you start, ensure you have Node.js and npm installed on your system. You 
    ```
    npm install
    npm install react-router-dom
-   npm install -g serve
-   npm install axios
+   
    ```
-
-3. To ensure scripts can run, execute the following command in your terminal:
-   ```
-   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
-   ```
-
-   **Note:** This command is for PowerShell and is required to allow the execution of scripts on your system.
 
 ### Step 2: Run Data Structure Scripts
 
@@ -44,23 +36,22 @@ Before you start, ensure you have Node.js and npm installed on your system. You 
    ```
    python name.py
    ```
-   Ensure that your working directory is still `football-betting`. The script execution will take approximately 1-2 minutes, and you should expect to see files named `batch{number}.json` in your directory afterward.
+   Ensure that your working directory is still `football-betting`. The script execution will take approximately 1-2 minutes, and you should expect to see files named `batch{number}.json` and `tree_structure.json` in your directory afterward.
 
 ## Running the Application
 
-1. Open two terminals in your project directory.
+1. Open terminal in your project directory.
 
-2. In the first terminal, start the local server:
-   ```
-   serve -l 8080
-   ```
-
-3. In the second terminal, launch the development server:
+2. Run the following commands:
    ```
    npm run dev
    ```
 
 4. Open the URL provided by `npm run dev` in a web browser to access the local interface of the website.
+
+## Important Notes
+
+- The search engine can only be searched by typing out the correct full name of a player as we do not have enough resource to make it more viable.
 
 ## Additional Notes
 
