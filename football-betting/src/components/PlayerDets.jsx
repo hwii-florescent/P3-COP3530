@@ -29,11 +29,14 @@ const PlayerDets = ({ filename }) => {
   }, [filename]);
   return (
     <div className="player-details">
-      {data && (
-        <>
-          <p>{data}</p>
-        </>
-      )}
+      {data.map((player, index) => (
+        <div key={index}>
+          <h2>{player[5]}</h2> 
+          <p>Position: {player[7]}</p>
+          <p>Age: {player[12]}</p>
+          <p><br /></p>
+        </div>
+      ))}
     </div>
   );
 };

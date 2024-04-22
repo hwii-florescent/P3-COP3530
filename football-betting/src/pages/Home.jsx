@@ -1,5 +1,6 @@
 import searchNameInJson from "../searchEngine";
-import playerJSON from "C:/Users/admin/OneDrive/Desktop/COP3530/P3-COP3530/tree_structure.json";
+import playerJSON from 'C:/Users/admin/OneDrive/Desktop/COP3530/P3-COP3530/tree_structure.json'
+
 import PlayerCard from "../components/PlayerCard";
 import React from "react";
 import { Link } from "react-router-dom";
