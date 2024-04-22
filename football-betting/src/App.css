@@ -1,56 +1,47 @@
-/* app.css styling of an app */
+/* App.css */
 
-.navigate1
-{
-    background-color: rgb(130, 129, 129);
-    padding:0px 0 10px 0;border-radius:10px;
+/* General styles for the entire app */
+.App {
+  text-align: center;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
 }
-.navigateContain
-{
-    padding: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.navigatetabs
-{
-    display: flex;
-    list-style-type: none;
-    margin: 7px;
-}
-.navigatetabs li
-{
-    cursor: pointer;
-    margin: 0px 27px 0px 0px;  /*right margin set to 10*/
 
+/* Header styles */
+.header {
+  background-color: #004d99;
+  color: white;
+  padding: 20px 0;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-size: 24px;
 }
-/* .navigatetabs li.active {
-    font-weight: bold;
-    color: rgb(82, 81, 80);
-    background-color: #adabab;
-    border-radius:8px;
-    padding: 2px 7px;
-  } */
-  .navigatetabs li.active {
-    font-weight: bold;
-    color: rgb(82, 81, 80);
-    background-color: #adabab;
-    border-radius:8px;
-    padding: 2px 7px;
-  }
-  
-  .displaypages {
-    max-width: 1200px;
-    color:darkslategrey;
-    margin: 20px auto;
-    padding: 0 20px;
-    
-  }
-  /* .mainbackground
-  {
-    background-color: rgb(237, 225, 209);
-  } */
-  body{
-    margin: 0px;
-    background-color: #ffffff;
-  }
+
+/* Button styles used in the header */
+.headerBtn {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.headerBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Link styles */
+a {
+  text-decoration: none;
+}
+
+/* Button focus outline removed for cleaner look */
+button:focus {
+  outline: none;
+}

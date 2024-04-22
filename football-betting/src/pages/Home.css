@@ -1,0 +1,65 @@
+/* Home.css */
+
+/* Style for the search container */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Styling for the search input bar */
+.searchbar {
+  padding: 8px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 300px; /* You can adjust the width as per your design requirement */
+}
+
+/* Styling for the search button */
+.searchbutton {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.searchbutton:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for list that contains player cards */
+ul {
+  list-style-type: none; /* Removes default list styling */
+  padding: 0;
+}
+
+/* Styling the button inside the Link for detail viewing */
+button {
+  margin-top: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Optional: You might want to add some generic resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

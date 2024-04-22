@@ -1,7 +1,7 @@
-export default function PlayerCard({name, filename,onClick}) {
+import "./PlayerCard.css";
+export default function PlayerCard({name, filename}) {
     return (
-        <div className='player-card'
-        onClick={()=> onClick(name,filename)}>
+        <div className='player-card'>
             <h1>{name}</h1>
         </div>
     )
