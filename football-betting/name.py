@@ -90,8 +90,9 @@ def read_and_split_data(filename, batch_size):
 
 def save_batches(batches):
     for i, batch in enumerate(batches):
+        batch_map = {row[6]: row for row in batch}  # Create a dictionary with the short name as key
         with open(f'batch_{i}.json', 'w') as f:
-            json.dump(batch, f)
+            json.dump(batch_map, f, indent=4)
 
 def serialize_tree(node):
     if not node:
