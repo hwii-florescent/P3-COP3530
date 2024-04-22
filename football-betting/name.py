@@ -116,8 +116,8 @@ save_batches(batches)
 
 tree = AVLTree()
 for i, batch in enumerate(batches):
-    min_name = min(batch, key=lambda x: x[5])[5]
-    max_name = max(batch, key=lambda x: x[5])[5]
+    min_name = min(batch, key=lambda x: x[6])[6]
+    max_name = max(batch, key=lambda x: x[6])[6]
     filename = f'batch_{i}.json'
     tree.insert(TreeNode(min_name, max_name, filename))
 

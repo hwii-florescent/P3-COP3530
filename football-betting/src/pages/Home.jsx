@@ -1,5 +1,5 @@
 import searchNameInJson from "../searchEngine";
-import playerJSON from "../../../tree_structure.json";
+import playerJSON from "../../tree_structure.json";
 import PlayerData from "../components/PlayerData";
 import React from "react";
 import { useState } from "react";
