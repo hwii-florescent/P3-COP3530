@@ -67,9 +67,3 @@ Before you start, ensure you have Node.js and npm installed on your system. You 
 - Make sure all paths and environment variables are set correctly for Node.js and Python.
 - If you encounter any permission issues, recheck the execution policy steps provided in Step 1.
 - For troubleshooting, check the console for any errors, or consult the documentation for each package used.
-
-## Support
-
-For support, please open an issue through the GitHub issue tracker associated with this repository.
-
-Thank you for using the Football Betting Application!
